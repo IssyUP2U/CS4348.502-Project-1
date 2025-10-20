@@ -21,11 +21,11 @@ int main() {
 
     char encrypted_pass[STR_SIZE];
     char decrypted_pass[STR_SIZE];
-    for (int i = 0; i < STR_SIZE; i++){
+    for (int i = 0; i < strlen(pass); i++){
         encrypted_pass[i] = pass[i] + key[i];
     }
     encrypted_pass[STR_SIZE-1] = '\0';
-    for (int i = 0; i < STR_SIZE; i++){
+    for (int i = 0; i < strlen(pass); i++){
         decrypted_pass[i] = encrypted_pass[i] - key[i];
     }
     decrypted_pass[STR_SIZE-1] = '\0';
