@@ -55,21 +55,21 @@ int main() {
     char output[STR_SIZE];
     //printf("Select an option:\nPASS - Sets the current password.\nKEY - Sets the encryption key\nENCRYPT - Using a Vigenère cypher with the current passkey, encrypt the argument and output the result. If no passkey is set output an error.\nDECRYPT - Using a Vigenère cypher with the current passkey, decrypt the argument and output the result. If no passkey is set output an error.\nQUIT - Exit the program.\n");
     while (1) {
-        printf("\nChoose what you want to do: ");  
+        //printf("\nChoose what you want to do: ");  
         if (fgets(option, sizeof(option), stdin) == NULL)
             break;
-        for (int i = 0; text[i]; i++) {
-            if (!isalpha(text[i])) {
-                printf("ERROR - Input must contain only letters\n");
-                fflush(stdout);
-                continue;
-            }
-        }
 
         option[strcspn(option, "\n")] = '\0';
 
         if (strncmp(option, "PASS ", 5) == 0) {
             strcpy(key, option + 5);
+            for (int i = 0; key[i]; i++) {
+                if (!isalpha(key[i])) {
+                    printf("ERROR - Input must contain only letters\n");
+                    fflush(stdout);
+                    continue;
+                }
+        }
             printf("RESULT Password set\n");
             fflush(stdout);
         } 
