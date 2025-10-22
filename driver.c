@@ -74,12 +74,13 @@ int main(int argc, char *argv[]) {
     int hist_count = 0;
     bool running = true;
 
+    //option selection loop
     while (running) {
         printf("\nCommands: password | encrypt | decrypt | history | quit\n> ");
         if (fgets(cmd, sizeof(cmd), stdin) == NULL) break;
         cmd[strcspn(cmd, "\n")] = '\0';
 
-        // lowercase command
+        //lowercase command
         for (int i = 0; cmd[i]; i++) cmd[i] = tolower((unsigned char)cmd[i]);
 
         if (strcmp(cmd, "quit") == 0) {
@@ -105,7 +106,7 @@ int main(int argc, char *argv[]) {
             fprintf(log_fp, "PASS Password set.\n");
             fflush(log_fp);
 
-            // Read encryptor response (optional)
+            
             if (fgets(response, sizeof(response), enc_out_fp)) {
                 printf("%s\n", response);
             }

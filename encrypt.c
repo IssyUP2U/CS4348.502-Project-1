@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define STR_SIZE 256
-
+//declares functions
 void encrypt(const char *reg_pass, const char *key, char *encrypted);
 void decrypt(const char *cipher, const char *key, char *decrypted);
 
